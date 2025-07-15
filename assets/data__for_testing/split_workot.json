@@ -1,0 +1,79 @@
+[
+    {
+        "Gender" : "Female",
+        "Number Of Days": 2,
+        "Day1" : "glutes, hamstrings, quadriceps, calves",
+        "Day2_1" : "shoulders, biceps, triceps, abs, cardio", 
+        "Day2_2" : "back, lats, abs, cardio",
+        "Alternate" : 1
+
+    },
+    
+    {
+        "Gender" : "Female",
+        "Number Of Days": 3,
+        "Day1" : "glutes, hamstrings, quadriceps, calves",
+        "Day2_1" : "shoulders, biceps, triceps, abs, cardio", 
+        "Day2_2" : "back, lats, abs, cardio",
+        "Day3" : "glutes",
+        "Alternate" : 1
+
+    },
+
+    {
+        "Gender" : "Female",
+        "Number Of Days": 4,
+        "Day1" : "glutes, hamstrings, quadriceps, calves",
+        "Day2" : "shoulders, biceps, triceps, abs, cardio", 
+        "Day3" : "glutes, hamstrings, quadriceps, calves",
+        "Day4" : "back, lats, abs, cardio"
+    },
+
+    {
+        "Gender" : "Female",
+        "Number Of Days": 5,
+        "Day1" : "glutes, hamstrings, quadriceps, calves",
+        "Day2" : "shoulders, biceps, triceps, abs, cardio", 
+        "Day3" : "hamstrings, quadriceps, calves",
+        "Day4" : "back, lats, abs, cardio",
+        "Day5" : "glutes"
+    },
+
+    {
+        "Gender" : "Male",
+        "Number Of Days": 2,
+        "Day1" : "glutes, hamstrings, quadriceps, calves",
+        "Day2_1" : "chest, triceps, shoulders, abs", 
+        "Day2_2" : "back, lats, biceps, trapezius",
+        "Alternate" : 1
+
+    },
+
+    {
+        "Gender" : "Male",
+        "Number Of Days": 3,
+        "Day1" : "chest, shoulders, triceps",
+        "Day2" : "quadriceps, glutes, hamstrings, calves, abs", 
+        "Day3" : "back, lats, biceps, trapezius, forearms"
+    },
+
+    {
+        "Gender" : "Male",
+        "Number Of Days": 4,
+        "Day1" : "chest, shoulders, triceps",
+        "Day2" : "quadriceps, glutes, hamstrings, calves, abs", 
+        "Day3" : "back, lats, biceps, trapezius, forearms",
+        "Day4" : "quadriceps, glutes, hamstrings, calves, abs"
+    },
+
+    {
+        "Gender" : "Male",
+        "Number Of Days": 5,
+        "Day1" : "quadriceps, glutes, hamstrings, calves",
+        "Day2" : "chest, triceps", 
+        "Day3" : "shoulders, abs",
+        "Day4" : "quadriceps, glutes, hamstrings, calves",
+        "Day5" : "back, lats, trapezius, biceps, forearms"
+    }
+
+]

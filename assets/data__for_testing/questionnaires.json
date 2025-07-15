@@ -1,0 +1,12 @@
+[
+    {
+        "UserId" : "0",
+        "Weight": 45.5,
+        "Height" : 168,
+        "Level" : "Expert", 
+        "Days" : 4,
+        "Time" : 90,
+        "Purpose": "Loose Weight",
+        "DaysDone": 0
+    }
+]

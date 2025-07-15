@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Camera Streaming</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100vh; background-color: black; }
+    video { width: 100%; height: 100%; object-fit: contain; }
+    #captured-image { width: 100%; height: auto; margin-top: 20px; border: 2px solid #fff; }
+  </style>
+</head>
+<body>
+  <video id="video" autoplay></video>
+  <canvas id="canvas" style="display: none;"></canvas>
+  <img id="captured-image" alt="Captured frame" />
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const capturedImage = document.getElementById('captured-image'); // Elementul pentru a arăta captura
+
+    // Conectare la WebSocket Server
+    const socket = new WebSocket("ws://192.168.175.226:8765");
+
+    socket.onopen = () => {
+      console.log("Conectat la WebSocket Server");
+    };
+
+    socket.onerror = (error) => {
+      console.log("Eroare WebSocket:", error);
+    };
+
+    // Pornim camera
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((stream) => {
+        video.srcObject = stream;
+        setInterval(captureAndSendFrame, 1000); // Trimite frame la fiecare 5000ms (5 secunde)
+      })
+      .catch((error) => console.error("Eroare accesare cameră:", error));
+
+    function captureAndSendFrame() {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      // Convertim frame-ul în imagine base64
+      const frameData = canvas.toDataURL("image/jpeg", 0.5); // Reducem calitatea pentru viteză
+
+      // Afișăm imaginea capturată pe pagină
+      capturedImage.src = frameData;
+      const base64Data = frameData.split(',')[1];
+
+      // Extragem primele 10 caractere din Base64
+      const base64Snippet = frameData.substring(0, 10);
+
+      // Construim mesajul conform formatului dorit
+      const message = `Incline Hammer Curls|${base64Data}`;
+
+      // Trimitem mesajul prin WebSocket
+      if (socket.readyState === WebSocket.OPEN) {
+        socket.send(message); // Trimitem mesajul în formatul dorit
+        console.log("Mesaj trimis:", message); // Opțional, pentru debug
+      }
+    }
+  </script>
+</body>
+</html>
